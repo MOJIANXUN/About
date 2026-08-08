@@ -4,7 +4,7 @@
 
 ## 预览
 
-在线访问：**[GitHub Pages](https://mojianxun.github.io/About/)**
+在线访问：**<a href="https://mojianxun.github.io/About/" target="_blank">GitHub Pages</a>**
 
 ## 功能模块
 
