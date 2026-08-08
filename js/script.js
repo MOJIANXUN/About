@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	
 	"use strict";
 	
@@ -550,4 +550,23 @@
    ========================================================================== */
 	
 
+
+	// 根据时间自动切换深色模式（晚上 18:00 - 早上 6:00 启用）
+	function autoDarkMode() {
+		var hour = new Date().getHours();
+		var isNight = (hour >= 18 || hour < 6);
+		
+		if (isNight) {
+			$('body').addClass('dark-version');
+		} else {
+			$('body').removeClass('dark-version');
+		}
+	}
+	
+	autoDarkMode();
+	setInterval(autoDarkMode, 60000); // 每分钟检查一次
+
 })(window.jQuery);
+
+
+

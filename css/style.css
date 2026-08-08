@@ -1937,3 +1937,181 @@ img{
     opacity: 1 !important;
     transform: translateX(10px);
 }
+
+/* 深色模式扩展样式 */
+.dark-version body {
+	background: #1a1a1a;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-version .page-background {
+	background-image: -moz-linear-gradient( 110deg, rgb(40, 40, 40) 0%, rgb(25, 25, 25) 100%);
+	background-image: -webkit-linear-gradient( 110deg, rgb(40, 40, 40) 0%, rgb(25, 25, 25) 100%);
+	background-image: -ms-linear-gradient( 110deg, rgb(40, 40, 40) 0%, rgb(25, 25, 25) 100%);
+}
+
+.dark-version .card-outer .card-wrapper {
+	background: #2a2a2a;
+	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
+}
+
+.dark-version .card-inner-box {
+	background: #2a2a2a;
+}
+
+.dark-version .card-home {
+	background: #2a2a2a !important;
+}
+
+.dark-version .card-home .author h3 {
+	color: #fff;
+}
+
+.dark-version .card-home .author .designation {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-version .card-home .text {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-version .header {
+	background-color: #1f1f1f;
+}
+
+.dark-version .header ul li {
+	border-bottom: 1px solid #333;
+}
+
+.dark-version .header ul li a {
+	color: rgba(255, 255, 255, 0.75);
+	background: #1f1f1f;
+}
+
+.dark-version .header ul li a i {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-version .header ul li.active a {
+	background: #9147ff;
+	color: #fff;
+}
+
+.dark-version .author-info {
+	background: #2a2a2a;
+}
+
+.dark-version .author-info .author h3 {
+	color: #fff;
+}
+
+.dark-version .author-info .author .designation {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-version .btn-style-one {
+	background: #9147ff;
+	color: #fff;
+}
+
+.dark-version .btn-style-one:hover {
+	background: #7a2eff;
+}
+
+.dark-version .btn-style-two {
+	color: rgba(255, 255, 255, 0.75);
+	border-color: #444;
+}
+
+.dark-version .btn-style-two:hover {
+	background: #9147ff;
+	border-color: #9147ff;
+	color: #fff;
+}
+
+.dark-version .social-icon-two li a {
+	color: rgba(255, 255, 255, 0.6);
+	border-color: #444;
+}
+
+.dark-version .social-icon-two li a:hover {
+	color: #fff;
+	background-color: #9147ff;
+	border-color: #9147ff;
+}
+
+.dark-version .card-about,
+.dark-version .card-resume,
+.dark-version .card-services,
+.dark-version .card-projects,
+.dark-version .card-blog,
+.dark-version .card-contact {
+	background: #2a2a2a;
+}
+
+.dark-version .card-about .title,
+.dark-version .card-resume .title,
+.dark-version .card-services .title,
+.dark-version .card-projects .title,
+.dark-version .card-blog .title,
+.dark-version .card-contact .title {
+	color: #fff;
+	border-bottom-color: #444;
+}
+
+.dark-version .card-about .info-list {
+	border-bottom-color: #444;
+}
+
+.dark-version .services-block .icon-box {
+	border-color: #444;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-version .services-block:hover .icon-box {
+	border-color: #9147ff;
+	color: #fff;
+}
+
+.dark-version .news-block .lower-content {
+	background: #2a2a2a;
+	border-color: #444;
+}
+
+.dark-version .news-block .lower-content h4 a {
+	color: #fff;
+}
+
+.dark-version .list-style-two li {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-version .list-style-two li .icon {
+	color: #9147ff;
+}
+
+.dark-version .mobile-menu {
+	background: #1f1f1f;
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.dark-version .mobile-menu .logo {
+	border-right-color: #333;
+}
+
+.dark-version a {
+	color: #9147ff;
+}
+
+.dark-version a:hover {
+	color: #7a2eff;
+}
+
+/* 深色模式过渡动画 */
+body {
+	transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-version * {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
