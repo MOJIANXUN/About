@@ -12,12 +12,33 @@ $(function(){
 	
 	var axes = [];
 	var wanderers = [];
-	var colors = [	
-					"#FFCC00", 
-					"#66CCF0", 
-					"#FF0033", 
-					"#99CC33"
-				];
+	var lightColors = [	
+						"#FFCC00", 
+						"#66CCF0", 
+						"#FF0033", 
+						"#99CC33"
+					];
+	var darkColors = [	
+						"#9147ff", 
+						"#5B8FFF", 
+						"#FF6B8A", 
+						"#6BDBA8"
+					];
+	
+	function isDarkMode() {
+		return document.body && document.body.classList.contains("dark-version");
+	}
+	
+	function getColors() {
+		return isDarkMode() ? darkColors : lightColors;
+	}
+	
+	function updateParticleColors() {
+		var colors = getColors();
+		for (var i = 0; i < wanderers.length; i++) {
+			wanderers[i].color = colors[i % colors.length];
+		}
+	}
 	
 	window.onload = function()
 	{
@@ -68,6 +89,7 @@ $(function(){
 			axes.push( new Axe( a,b ) );
 		}
     wanderers = [];
+		var colors = getColors();
 		for( var i = 0; i < colors.length * 3; i++ )
 		{
 			wanderers.push( new wanderer( Math.random() * width, Math.random() * height, 
@@ -84,13 +106,14 @@ $(function(){
 	
 	function update()
 	{
+		updateParticleColors();
 		requestAnimationFrame( update )
-		ctx.fillStyle = "rgba(255,255,255,.25)";
+		ctx.fillStyle = isDarkMode() ? "rgba(25,25,25,.3)" : "rgba(255,255,255,.25)";
     ctx.globalCompositeOperation = "lighten";
 		ctx.fillRect( 0,0,width, height );
     ctx.globalCompositeOperation = "source-over";
 		
-		ctx.strokeStyle = "rgba(16,16,16,.01 )";
+		ctx.strokeStyle = isDarkMode() ? "rgba(200,200,200,.01)" : "rgba(16,16,16,.01)";
 		for( var j = 0; j < axes.length; j++ )axes[ j ].draw( ctx );
 			
 		for( var i = 0; i < wanderers.length; i++ )

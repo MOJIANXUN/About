@@ -1,4 +1,4 @@
-﻿(function($) {
+(function($) {
 	
 	"use strict";
 	
@@ -24,6 +24,7 @@
 		}
 	});
 
+	//Typing animation
 	$('.typed-title').typed({
 		stringsElement: $('.typing-title'),
 		backDelay: 1000,
@@ -31,27 +32,16 @@
 		loop: true
 	});
 
+	//Custom scrollbar
 	function customScrollbar() {
 		var windowWidth = $(window).width();
-		if (windowWidth <= 1199) {
-		}else {
+		if (windowWidth > 1199) {
 			$(".card-inner").niceScroll();
 		}
 	}
 	customScrollbar();
-		
-	/*
-		Vars
-	*/
 	
-	var width = $(window).width();
-	var height = $(window).height();
-	
-	
-	/*
-		Header Menu Desktop
-	*/
-	
+	//Header Menu Desktop
 	var container = $('.card-outer .container');
 	var innerbox = $('.card-outer .card-inner-box');
 	var card_items = $('.card-item');
@@ -59,408 +49,86 @@
 	var animation_out = container.data('animation-out');
 	
 	$('.main-menu').on('click', 'a', function(){
-
-		/* vars */
 		var id = $(this).attr('href');
-		var h = parseFloat($(id).offset().top);
 		var card_item = $(id);
 		var menu_items = $('.main-menu li');
 		var menu_item_home = $('.main-menu li.home');
 		var menu_item = $(this).closest('li');
-		var d_lnk = $('.lnks .lnk.discover');
 		
-		/* if desktop */
 		if(!menu_item.hasClass('active') & $('#home').length) {
-
-			/* close card items */
 			menu_items.removeClass('active');
 			container.find(card_items).removeClass('animated '+animation_in);
-
 			if($(container).hasClass('opened')) {
 				container.find(card_items).addClass('animated '+animation_out);
 			}
-
-			/* open card item */
 			menu_item.addClass('active');
 			container.addClass('opened');
 			container.find(card_item).removeClass('animated '+animation_out);
 			container.find(card_item).addClass('animated '+animation_in);
-			
 			$(card_items).addClass('hide-item');
-			
 			$(card_item).removeClass('hide-item');
 			$(card_item).addClass('active');
 		}
 
 		if(!menu_item_home.hasClass('active')) {
 			$(innerbox).addClass('offsetleft');
-		}else {
+		} else {
 			$(innerbox).removeClass('offsetleft');
 		}
-		
 		return false;
 	});
 
-	//Jquery Knob animation 
+	//Jquery Knob animation (skill dials)
 	if($('.dial').length){
-	   $('.dial').appear(function(){
-          var elm = $(this);
-          var color = elm.attr('data-fgColor');  
-          var perc = elm.attr('value');  
- 
-          elm.knob({ 
-               'value': 0, 
-                'min':0,
-                'max':100,
-                'skin':'tron',
-                'readOnly':true,
-                'thickness':0.12,
+		$('.dial').appear(function(){
+			var elm = $(this);
+			var color = elm.attr('data-fgColor');
+			var perc = elm.attr('value');
+			elm.knob({
+				'value': 0,
+				'min': 0,
+				'max': 100,
+				'skin': 'tron',
+				'readOnly': true,
+				'thickness': 0.12,
 				'dynamicDraw': true,
-				'displayInput':false
-          });
-
-          $({value: 0}).animate({ value: perc }, {
-			  duration: 2000,
-              easing: 'swing',
-              progress: function () { elm.val(Math.ceil(this.value)).trigger('change');
-              }
-          });
-
-          },{accY: 0});
-    }
-	
-	
-	//Jquery Knob animation Two 
-	function knobAnimate() {
-	if($('.round-dial').length){
-	   $('.round-dial').each(function(){
-          var elm = $(this);
-          var color = elm.attr('data-fgColor');  
-          var perc = elm.attr('value');  
- 
-          elm.knob({ 
-               'value': 0, 
-                'min':0,
-                'max':100,
-                'skin':'tron',
-                'readOnly':true,
-                'thickness':0.12,
-				'dynamicDraw': true,
-				'displayInput':false
-          });
-
-          $({value: 0}).animate({ value: perc }, {
-			  duration: 0,
-              easing: 'swing',
-              progress: function () { elm.val(Math.ceil(this.value)).trigger('change');
-              }
-          });
-
-          });
-    }
-	}
-	
-	knobAnimate();
-	
-	
-
-	//Masonary
-	function enableMasonry() {
-		if($('.masonry-items-container').length){
-	
-			var winDow = $(window);
-			// Needed variables
-			var $container=$('.masonry-items-container');
-	
-			$container.isotope({
-				itemSelector: '.masonry-item',
-				 masonry: {
-					columnWidth : '.column-width'
-				 },
-				animationOptions:{
-					duration:500,
-					easing:'linear'
-				}
+				'displayInput': false
 			});
-	
-			winDow.on('resize', function(){
-
-				$container.isotope({ 
-					itemSelector: '.masonry-item',
-					animationOptions: {
-						duration: 500,
-						easing	: 'linear',
-						queue	: false
-					}
-				});
+			$({value: 0}).animate({ value: perc }, {
+				duration: 2000,
+				easing: 'swing',
+				progress: function () { elm.val(Math.ceil(this.value)).trigger('change'); }
 			});
-		}
+		},{accY: 0});
 	}
-	
-	enableMasonry();
-	
-	
-	//Masonary Two
-	function enableMasonryTwo() {
-		if($('.masonry-two').length){
-	
-			var winDow = $(window);
-			// Needed variables
-			var $container=$('.masonry-two');
-	
-			$container.isotope({
-				itemSelector: '.masonry-item',
-				 masonry: {
-					columnWidth : '.masonry-item',
-				 },
-				animationOptions:{
-					duration:500,
-					easing:'linear'
-				}
-			});
-	
-			winDow.on('resize', function(){
-
-				$container.isotope({ 
-					itemSelector: '.masonry-item',
-					animationOptions: {
-						duration: 500,
-						easing	: 'linear',
-						queue	: false
-					}
-				});
-			});
-		}
-	}
-	
-	enableMasonryTwo();
-	
-	//Portfolio Carousel one
-	if ($('.portfolio-carousel-one').length) {
-		$('.portfolio-carousel-one').owlCarousel({
-			animateOut: 'fadeOut',
-    		animateIn: 'fadeIn',
-			loop:true,
-			mouseDrag:false,
-			margin:30,
-			nav:true,
-			smartSpeed: 700,
-			autoplay: true,
-			autoplayTimeout:7000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				1024:{
-					items:1
-				},
-			}
-		});    		
-	}
-
-	//Portfolio Carousel Two
-	if ($('.portfolio-carousel-two').length) {
-		$('.portfolio-carousel-two').owlCarousel({
-			animateOut: 'fadeOut',
-    		animateIn: 'fadeIn',
-			loop:true,
-			mouseDrag:false,
-			margin:30,
-			nav:true,
-			smartSpeed: 700,
-			autoplay: true,
-			autoplayTimeout:7000,
-			navText: [ '<span class="arrow-left"></span>', '<span class="arrow-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				1024:{
-					items:1
-				},
-			}
-		});    		
-	}
-	
-	//Portfolio Carousel Slider
-	if ($('.portfolio-carousel-three').length) {
-		$('.portfolio-carousel-three').owlCarousel({
-			loop:true,
-			margin:20,
-			nav:true,
-			smartSpeed: 700,
-			autoplay: 4000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:2
-				},
-				800:{
-					items:3
-				},
-				1024:{
-					items:4
-				},
-				1600:{
-					items:5
-				}
-			}
-		});    		
-	}
-
-	//Testimonial Carousel
-	if ($('.testimonial-carousel').length) {
-		$('.testimonial-carousel').owlCarousel({
-			loop:true,
-			margin:20,
-			nav:true,
-			smartSpeed: 700,
-			autoplay: 4000,
-			navText: [ '<span class="arrow-left"></span>', '<span class="arrow-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				1024:{
-					items:1
-				},
-			}
-		});    		
-	}
-
-	//Testimonial Carousel
-	if ($('.single-item-carousel').length) {
-		$('.single-item-carousel').owlCarousel({
-			loop:true,
-			margin:20,
-			nav:true,
-			smartSpeed: 700,
-			autoplay: 4000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				1024:{
-					items:1
-				},
-			}
-		});    		
-	}	
 
 	//LightBox / Fancybox
 	if($('.lightbox-image').length) {
 		$('.lightbox-image').fancybox({
 			openEffect  : 'fade',
 			closeEffect : 'fade',
-			helpers : {
-				media : {}
-			}
+			helpers : { media : {} }
 		});
 	}
-	
-	//Contact Form Validation
-	if($('#contact-form').length){
-		$('#contact-form').validate({
-			rules: {
-				username: {
-					required: true
-				},
-				email: {
-					required: true,
-					email: true
-				},
-				phone: {
-					required: true
-				},
-				message: {
-					required: true
-				}
-			}
-		});
-	}
-	
-	// Scroll to a Specific Div
-	if($('.scroll-to-target').length){
-		$(".scroll-to-target").on('click', function() {
-			var target = $(this).attr('data-target');
-		   // animate
-		   $('html, body').animate({
-			   scrollTop: $(target).offset().top
-			 }, 1500);
-	
-		});
-	}
-	
-	
-	//Progress Bar
-	if($('.progress-line').length){
-		$('.progress-line').appear(function(){
-			var el = $(this);
-			var percent = el.data('width');
-			$(el).css('width',percent+'%');
-		},{accY: 0});
-	}
-	
-	
-	//Tabs Box
-	if($('.tabs-box').length){
-		$('.tabs-box .tab-buttons .tab-btn').on('click', function(e) {
-			e.preventDefault();
-			var target = $($(this).attr('data-tab'));
-			
-			if ($(target).is(':visible')){
-				return false;
-			}else{
-				target.parents('.tabs-box').find('.tab-buttons').find('.tab-btn').removeClass('active-btn');
-				$(this).addClass('active-btn');
-				target.parents('.tabs-box').find('.tabs-content').find('.tab').fadeOut(0);
-				target.parents('.tabs-box').find('.tabs-content').find('.tab').removeClass('active-tab');
-				$(target).fadeIn(300);
-				$(target).addClass('active-tab');
-			}
-		});
-	}
-	
-	
-	// Elements Animation
+
+	//Elements Animation (WOW.js)
 	if($('.wow').length){
-		var wow = new WOW(
-		  {
-			boxClass:     'wow',      // animated element css class (default is wow)
-			animateClass: 'animated', // animation css class (default is animated)
-			offset:       0,          // distance to the element when triggering the animation (default is 0)
-			mobile:       true,       // trigger animations on mobile devices (default is true)
-			live:         true       // act on asynchronously loaded content (default is true)
-		  }
-		);
+		var wow = new WOW({
+			boxClass:     'wow',
+			animateClass: 'animated',
+			offset:       0,
+			mobile:       true,
+			live:         true
+		});
 		wow.init();
 	}
 
-	//Fact Counter + Text Count
+	//Fact Counter
 	if($('.count-box').length){
 		$('.count-box').appear(function(){
-	
 			var $t = $(this),
 				n = $t.find(".count-text").attr("data-stop"),
 				r = parseInt($t.find(".count-text").attr("data-speed"), 10);
-				
 			if (!$t.hasClass("counted")) {
 				$t.addClass("counted");
 				$({
@@ -478,95 +146,62 @@
 					}
 				});
 			}
-			
 		},{accY: 0});
 	}
-	
-	//Bottom Parallax
-	function bottomParallax() {
-		if($('.bottom-parallax').length){
-			var windowpos = $(window).scrollTop();
-			var siteFooter = $('.main-footer').height();
-			var sitebodyHeight = $('.page-wrapper').height();
-			var finalHeight = sitebodyHeight - siteFooter - 1100;
-			if (windowpos >= finalHeight) {
-				$('body').addClass('parallax-visible');
-			} else {
-				$('body').removeClass('parallax-visible');
-			}
-		}
-	}
-	
-	bottomParallax();
-	
-	//Make Content Sticky
-	if($('.sticky-box').length){
-		var a = new StickySidebar('.portfolio-single .content-column .inner', {
-			topSpacing: 80,
-			bottomSpacing: 0,
-			containerSelector: '.sticky-container',
-			innerWrapperSelector: '.sticky-box'
-		});
-	}
-	
-	//Split Scroll (Home 7)	
-	if($('#scroll-container').length){
-		$('#scroll-container').multiscroll({
-			navigation: true,
-			css3:true
-		});
-	}
-	
 
-/* ==========================================================================
-   When document is Scrollig, do
-   ========================================================================== */
-	
-	$(window).on('scroll', function() {
-		bottomParallax();
-	});
-	
-/* ==========================================================================
-   When document is loading, do
-   ========================================================================== */
-	
+	//Page load
 	$(window).on('load', function() {
 		handlePreloader();
-		enableMasonry();
-		enableMasonryTwo();
 	});
 
-
-/* ==========================================================================
-   When page is resized
-   ========================================================================== */
-	
+	//Page resize
 	$(window).on('resize', function() {
 		customScrollbar();
 	});
 
-/* ==========================================================================
-   When document is Resize, do
-   ========================================================================== */
-	
-
-
-	// 根据时间自动切换深色模式（晚上 18:00 - 早上 6:00 启用）
-	function autoDarkMode() {
-		var hour = new Date().getHours();
-		var isNight = (hour >= 18 || hour < 6);
-		
-		if (isNight) {
-			$('body').addClass('dark-version');
-		} else {
-			$('body').removeClass('dark-version');
-		}
+	// Theme colors: smooth transition based on time of day
+	// 9-17 full light, 17-21 gradual dark, 21-5 full dark, 5-9 gradual light
+	function mixColor(a, b, f) {
+		return [
+			Math.round(a[0] + (b[0] - a[0]) * f),
+			Math.round(a[1] + (b[1] - a[1]) * f),
+			Math.round(a[2] + (b[2] - a[2]) * f)
+		];
 	}
-	
-	autoDarkMode();
-	setInterval(autoDarkMode, 60000); // 每分钟检查一次
+
+	function rgbStr(c) {
+		return 'rgb(' + c[0] + ',' + c[1] + ',' + c[2] + ')';
+	}
+
+	function getDarkFactor() {
+		var now = new Date();
+		var t = now.getHours() + now.getMinutes() / 60.0;
+		if (t >= 9 && t < 17) return 0;
+		if (t >= 17 && t < 21) return (t - 17) / 4;
+		if (t >= 21 || t < 5) return 1;
+		return 1 - (t - 5) / 4;
+	}
+
+	function updateThemeColors() {
+		var f = getDarkFactor();
+		$('body').toggleClass('dark-version', f > 0.5);
+
+		var gradStart = rgbStr(mixColor([145,71,255], [40,40,40], f));
+		var gradEnd = rgbStr(mixColor([121,39,245], [25,25,25], f));
+		$('.page-background').css('background-image',
+			'linear-gradient(110deg, ' + gradStart + ' 0%, ' + gradEnd + ' 100%)');
+
+		$('.card-item, .author-info').css('background-color',
+			rgbStr(mixColor([255,255,255], [42,42,42], f)));
+
+		$('.header').css('background-color',
+			rgbStr(mixColor([248,233,233], [31,31,31], f)));
+
+		$('.header ul li').css('border-bottom-color',
+			rgbStr(mixColor([240,226,226], [51,51,51], f)));
+	}
+
+	updateThemeColors();
+	setInterval(updateThemeColors, 60000);
 
 })(window.jQuery);
-
-
-

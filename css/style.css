@@ -1,4 +1,4 @@
-/* Mahira HTML Template*/
+﻿/* Mahira HTML Template*/
 
 /************ TABLE OF CONTENTS ***************
 1. Fonts
@@ -29,12 +29,8 @@ font-family: 'Work Sans', sans-serif;*/
 @import url('font-awesome.css');
 @import url('flaticon.css');
 @import url('animate.css');
-@import url('owl.css');
-@import url('jquery-ui.css');
 @import url('jquery.fancybox.min.css');
-@import url('jquery.mCustomScrollbar.min.css');
 @import url('custom-animate.css');
-@import url('multi-scroll.css');
 
 /*** 
 
@@ -130,7 +126,6 @@ p{
 	background-image: url(../images/icons/line.png);
 }
 
-
 ul,li{
 	list-style:none;
 	padding:0px;
@@ -200,7 +195,6 @@ ul,li{
 	background: #9147ff;
 	border-color: #9147ff;
 }
-
 
 /*Social Icon One*/
 
@@ -341,7 +335,6 @@ img{
 	bottom: 50px;
 }
 
-
 .card-outer {
     position: fixed;
     display: flex;
@@ -358,7 +351,6 @@ img{
 .card-outer .container {
 	position: relative;
 }
-
 
 /*** 
 
@@ -780,7 +772,6 @@ img{
 	margin-top: 15px;
 }
 
-
 /*** 
 
 ====================================================================
@@ -857,7 +848,6 @@ img{
 .dark-layout .card-resume .timeline-column .col-header .icon-box .icon{
 	color:#1e1e1e;	
 }
-
 
 .card-resume .timeline-column .col-header .icon-box .icon{
 	position:relative;
@@ -1011,7 +1001,6 @@ img{
 .services-block .text {
 	margin-bottom: 10px;
 }
-
 
 /*** 
 
@@ -1216,7 +1205,6 @@ img{
 	width: 100%;
 }
 
-
 .news-block .image:before {
     background: rgba(0, 0, 0, 0.75);
     content: "";
@@ -1237,7 +1225,6 @@ img{
     opacity: 1;
     height: 100%;
 }
-
 
 .news-block .overlay a {
     background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
@@ -1500,8 +1487,6 @@ img{
 	letter-spacing:1px;
 }
 
-
-
 /*** 
 
 ====================================================================
@@ -1605,7 +1590,6 @@ img{
 .gmnoprint {
 	display: none;
 }
-
 
 /*** 
 
@@ -1815,7 +1799,6 @@ img{
 	color: #222;
 }
 
-
 /*** 
 
 ====================================================================
@@ -1827,7 +1810,6 @@ img{
 .dark-version .card-about .title {
 	color: #fff;
 }
-
 
 .dark-version .card-about .text {
     color: rgba(255, 255, 255, 0.60);
@@ -1913,7 +1895,6 @@ img{
     top: 0;
     z-index: -1;
 }
-
 
 /*======== Default Version =========*/
 
